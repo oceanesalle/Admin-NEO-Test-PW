@@ -36,7 +36,7 @@ export const Header = () => {
           <li >
             <Link
             onClick={()=>setMenuOpened(false)}
-            to='planning'
+            to='Login'
             spy={true}
             smooth={true}
             > 
