@@ -7,8 +7,16 @@
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "module",
+    "url": "git+https://github.com/oceanesalle/Admin-NEO-Test-PW.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oceanesalle/Admin-NEO-Test-PW/issues"
+  },
+  "homepage": "https://github.com/oceanesalle/Admin-NEO-Test-PW#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
