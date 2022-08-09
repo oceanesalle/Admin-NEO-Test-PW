@@ -2,6 +2,9 @@ import express from "express";
 import Joi from "joi";
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import middleware from "../services/middleware.js";
+
 
 const router = express.Router();
 const saltRounds = 10;
@@ -51,6 +54,10 @@ router
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
+    })
+
+    .get("/user-is-auth", middleware.verifyJWT, (req, res) => {
+        res.json({auth: true, message: "utilisateur est authentifié"}).status(200);
     })
 
 export default router;
