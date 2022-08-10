@@ -1,0 +1,24 @@
+.EditRecipe  {
+  width: 100%;
+  height: 5vh;
+  font-size: 3vh;
+}
+
+.EditRecipe .input-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.EditRecipe .input-container input {
+  width: 7%;
+}
+
+.EditRecipe .input-container label {
+  font-size: 3vh;
+  margin-right: 2vw;
+}
+
+.EditRecipe .input-container select {
+  width: 80%;
+}

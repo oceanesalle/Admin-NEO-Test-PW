@@ -8,9 +8,11 @@ import './EditRecipe.css';
 const EditRecipe = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [person, setPerson] = useState(null);
-  const [time, setTime] = useState(null);
+  const [image, setImage] = useState(null);
+  const [person, setPerson] = useState(0);
+  const [time, setTime] = useState(0);
   const [ingredients, setIngredients] = useState('');
+
 
   const { id } = useParams();
   const { reponse, reponseType, handleMessage } = useContext(UxContext);
@@ -19,6 +21,7 @@ const EditRecipe = () => {
     axios.get(`http://localhost:5000/recipe/${id}`).then(({ data }) => {
       setTitle(data.title);
       setDescription(data.description);
+      setImage(data.image);
       setPerson(data.person);
       setTime(data.time);
       setIngredients(data.ingredients);
@@ -39,11 +42,13 @@ const EditRecipe = () => {
     e.preventDefault();
     formData.append('id', id);
     formData.append('title', title);
-    formData.append('person', person);
     formData.append('description', description);
+    formData.append('image', image);
+    formData.append('person', person);
+    formData.append('time', time);
     formData.append('ingredients', ingredients);
-
-    if (title !== '' && description !== '') {
+    
+    if (title !== '' && image !== null && description !== '' && time !== 0 && person !== 0 && ingredients !== '') {
       const updated = await axios.put(
         'http://localhost:5000/recipe',
         formData,
@@ -76,7 +81,7 @@ const EditRecipe = () => {
             <input type="file" onChange={handleFile} />
             <div
               className="image-preview"
-              style={{ backgroundImage: `url(${imageUrl})` }}
+              style={{ backgroundImage: `url(${image})` }}
             ></div>
           </div>
           <input
