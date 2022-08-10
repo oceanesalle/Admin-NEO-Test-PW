@@ -17,22 +17,10 @@ import Login from './admin/Login/Login';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [reponse, setReponse] = useState('');
-  const [reponseType, setReponseType] = useState('');
   const [menu, setMenu] = useState('user');
   const [user, setUser] = useState({});
-  const [seen, setSeen] = useState([]);
-  const [message, setMessage] = useState([]);
 
-  const deleteMessage = () => {
-    setReponse('');
-  };
 
-  const handleMessage = (type, text, duration) => {
-    setReponseType(type);
-    setReponse(text);
-    setTimeout(deleteMessage, duration);
-  };
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -62,17 +50,7 @@ function App() {
       <UxContext.Provider
         value={{
           menu,
-          reponse,
-          reponseType,
           setMenu,
-          setReponse,
-          setReponseType,
-          deleteMessage,
-          handleMessage,
-          seen,
-          setSeen,
-          message,
-          setMessage,
         }}
       >
   <Router>      
