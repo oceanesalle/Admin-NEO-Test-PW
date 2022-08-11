@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { FaRegEdit } from 'react-icons/fa';
 import { BsTrash } from 'react-icons/bs';
 import axios from 'axios';
-import Recipe from '../../pages/Recipe/Recipe';
+import Services from '../../services/services.js';
 import './DashboardRecipe.css';
 
 const DashboardRecipe = () => {
@@ -39,7 +39,7 @@ const DashboardRecipe = () => {
                     <button
                       className="trash"
                       onClick={() =>
-                        Recipe.handleDelete('recipe', s.id, setRecipe)
+                        Services.handleDelete('recipe', s.id, setRecipe)
                       }
                     >
                       <BsTrash />
