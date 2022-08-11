@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import Recipe from '../../pages/Recipe/Recipe';
+import Services from '../../services/services.js';
 import './RecipeCard.css';
 
 const RecipeCard = ({ title, text, id, image }) => {
-  const desc = Recipe.stripTag(text);
-  const description = Recipe.strLimit(desc, 100);
+  const desc = Services.stripTag(text);
+  const description = Services.strLimit(desc, 100);
 
   return (
     <div className="RecipeCard">
