@@ -11,7 +11,7 @@ const saltRounds = 10;
 const schemaUser = Joi.object({
     email: Joi.string().email().required().trim(true),
     password: Joi.string()
-        .regex(/^[a-zA-Z0-9]{3,30}$/)
+        .regex(/^[a-zA-Z0-9]/)
         .required()
         .trim(true),
     is_admin: Joi.boolean().default(false),
